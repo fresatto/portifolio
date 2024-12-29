@@ -28,10 +28,10 @@ export const Nav = styled.nav`
     gap: 16px;
 
     li {
-      color: var(--font-color);
+      color: ${(props) => props.theme.colors.text};
 
       &.active {
-        color: var(--font-color-black);
+        color: ${(props) => props.theme.colors.textBold};
       }
     }
   }
@@ -41,7 +41,7 @@ export const SocialNetworks = styled.div`
   color: var(--font-color);
 
   strong {
-    color: var(--font-color-black);
+    color: ${(props) => props.theme.colors.textBold};
   }
 
   p {
