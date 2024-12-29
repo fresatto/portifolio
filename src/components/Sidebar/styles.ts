@@ -23,13 +23,27 @@ export const Nav = styled.nav`
   ul {
     display: flex;
     flex-direction: column;
-
     gap: 16px;
+
+    li {
+      color: var(--font-color);
+
+      &.active {
+        color: var(--font-color-black);
+      }
+    }
   }
 `;
 
 export const SocialNetworks = styled.div`
+  color: var(--font-color);
+
+  strong {
+    color: var(--font-color-black);
+  }
+
   p {
     margin-bottom: 8px;
+    line-height: 24px;
   }
 `;

@@ -11,7 +11,7 @@ const Sidebar: React.FC = () => {
           <li>Inicío</li>
           <li>Sobre</li>
           <li>Serviços</li>
-          <li>Portifolio</li>
+          <li className="active">Portifolio</li>
           <li>Contato</li>
         </ul>
       </Nav>
