@@ -5,6 +5,8 @@ export const Container = styled.aside`
   background: #fff;
   width: 300px;
 
+  text-align: center;
+
   display: flex;
   flex-direction: column;
   align-items: center;

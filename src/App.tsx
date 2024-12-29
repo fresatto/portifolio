@@ -1,4 +1,3 @@
-import "./App.css";
 import Sidebar from "./components/Sidebar";
 import { Container, Content } from "./styles";
 
