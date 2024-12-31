@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Nav, SocialNetworks } from "./styles";
+import { Container, Nav, SocialNetworks, StyledNavLink } from "./styles";
 
 const Sidebar: React.FC = () => {
   return (
@@ -8,11 +8,10 @@ const Sidebar: React.FC = () => {
       <img src="https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk" />
       <Nav>
         <ul>
-          <li>Inicío</li>
-          <li>Sobre</li>
-          <li>Serviços</li>
-          <li className="active">Portifolio</li>
-          <li>Contato</li>
+          <StyledNavLink to="/">Inicío</StyledNavLink>
+          <StyledNavLink to="/about">Sobre</StyledNavLink>
+          <StyledNavLink to="/services">Serviços</StyledNavLink>
+          <StyledNavLink to="/contact">Contato</StyledNavLink>
         </ul>
       </Nav>
       <SocialNetworks>

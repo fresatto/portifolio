@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import styled from "styled-components";
 
 export const Container = styled.aside`
@@ -28,14 +29,14 @@ export const Nav = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+`;
 
-    li {
-      color: ${(props) => props.theme.colors.text};
+export const StyledNavLink = styled(NavLink)`
+  color: ${(props) => props.theme.colors.text};
 
-      &.active {
-        color: ${(props) => props.theme.colors.textBold};
-      }
-    }
+  &.active {
+    color: ${(props) => props.theme.colors.textBold};
   }
 `;
 
