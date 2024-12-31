@@ -6,13 +6,15 @@ export const Container = styled.aside`
   width: 300px;
 
   text-align: center;
+  display: none;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 32px;
+  ${({ theme }) => theme.media.largeDesktop} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
 
   img {
     width: 80px;
