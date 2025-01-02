@@ -1,7 +1,9 @@
-import Sidebar from "./components/Sidebar";
-import { Container, Content } from "./styles";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
-import { ThemeProvider } from "styled-components";
+import { Container } from "./styles";
 import { Route, Routes } from "react-router";
 import MainLayout from "./layouts/MainLayout";
 import Initial from "./pages/Initial";
