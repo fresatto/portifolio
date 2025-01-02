@@ -38,4 +38,5 @@ export const TitleWrapper = styled.div`
 export const Title = styled.h2`
   font-size: 16px;
   font-weight: bold;
+  text-transform: uppercase;
 `;
