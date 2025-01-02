@@ -8,7 +8,10 @@ export const Container = styled.header`
   height: 80px;
 
   padding: ${(props) => props.theme.spacing.medium};
-  border-bottom: 1px solid #ccc;
+
+  ${(props) => props.theme.media.largeDesktop} {
+    display: none;
+  }
 
   img {
     width: 40px;
