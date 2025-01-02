@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 60px 100px;
-  background: #eee;
   height: 100%;
+
+  ${({ theme }) => theme.media.largeDesktop} {
+    padding: 60px 100px;
+    background: #eee;
+  }
 `;
 
 export const Content = styled.div`
