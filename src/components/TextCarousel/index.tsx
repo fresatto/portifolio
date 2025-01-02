@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Container } from "./styles";
 
-const phrases = ["Desenvolvedor React", "Desenvolvedor React Native"];
+const phrases = ["Desenvolvedor Front-End", "React JS", "React Native", "Next"];
 
 const TextCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0); // Rastreia a frase atual
@@ -58,7 +58,7 @@ const TextCarousel = () => {
           setCurrentIndex((prevIndex) => (prevIndex + 1) % phrases.length); // Próxima frase
         },
       });
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer); // Limpa o timer ao desmontar o componente ou ao mudar o índice
   }, [currentIndex]);

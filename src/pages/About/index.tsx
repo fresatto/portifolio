@@ -1,4 +1,6 @@
 import React from "react";
+import { Typography } from "@mui/material";
+
 import InfoSection from "../../components/InfoSection";
 import { Container, Stats } from "./styles";
 
@@ -6,17 +8,15 @@ const About: React.FC = () => {
   return (
     <Container>
       <InfoSection title="Sobre">
-        <p>
+        <Typography>
           My name is David Parker and I am a Web Designer, and I'm very
           passionate and dedicated to my work. With 3 years experience as a
           professional Web Designer, I have acquired the skills and knowledge
           necessary to make your project a success. I enjoy every step of the
           design process, from discussion and collaboration. Thanks a lot for
           your attention and your trust!
-        </p>
-
+        </Typography>
         <hr />
-
         <Stats>
           <div>
             <span>Nome:</span>
@@ -45,14 +45,17 @@ const About: React.FC = () => {
         </Stats>
       </InfoSection>
       <InfoSection title="Conhecimento">
-        <p>
+        <Typography variant="h3" mb="16px">
+          Programação
+        </Typography>
+        <Typography>
           My name is David Parker and I am a Web Designer, and I'm very
           passionate and dedicated to my work. With 3 years experience as a
           professional Web Designer, I have acquired the skills and knowledge
           necessary to make your project a success. I enjoy every step of the
           design process, from discussion and collaboration. Thanks a lot for
           your attention and your trust!
-        </p>
+        </Typography>
       </InfoSection>
     </Container>
   );

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  padding: 40px 24px 24px;
+  padding: 56px 24px 24px;
   border: 1px solid ${(props) => props.theme.colors.border};
   position: relative;
 
   p {
-    color: ${(props) => props.theme.colors.text};
+    /* color: ${(props) => props.theme.colors.text}; */
     line-height: 24px;
   }
 
@@ -15,6 +15,10 @@ export const Container = styled.section`
     background-color: #eee;
     height: 1px;
     margin: 24px 0;
+  }
+
+  ${(props) => props.theme.media.largeDesktop} {
+    padding: 68px;
   }
 `;
 

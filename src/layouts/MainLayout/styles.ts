@@ -17,4 +17,10 @@ export const Content = styled.div`
     height: 100%;
     padding: 40px 16px 16px;
   }
+
+  ${(props) => props.theme.media.largeDesktop} {
+    section.content {
+      padding: 50px;
+    }
+  }
 `;
