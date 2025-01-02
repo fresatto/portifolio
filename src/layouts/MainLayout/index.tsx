@@ -10,7 +10,7 @@ const MainLayout: React.FC = () => {
     <Content>
       <Header />
       <Sidebar />
-      <section>
+      <section className="content">
         <Outlet />
       </section>
     </Content>

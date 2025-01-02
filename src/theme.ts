@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     text: "#868a9b",
     textBold: "#000",
+    border: "#eee",
   },
   fonts: {
     body: '"Syne", serif',

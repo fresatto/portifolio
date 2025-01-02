@@ -11,9 +11,10 @@ export const Content = styled.div`
     flex-direction: row;
   }
 
-  section {
+  section.content {
     background: #fff;
     flex: 1;
     height: 100%;
+    padding: 40px 16px 16px;
   }
 `;
