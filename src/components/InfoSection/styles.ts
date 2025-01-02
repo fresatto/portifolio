@@ -12,7 +12,7 @@ export const Container = styled.section`
 
   hr {
     border: none;
-    background-color: ${(props) => props.theme.colors.text};
+    background-color: #eee;
     height: 1px;
     margin: 24px 0;
   }
