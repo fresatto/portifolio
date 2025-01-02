@@ -13,6 +13,7 @@ export const Container = styled.div`
     font-size: 36px;
     font-weight: bold;
     text-transform: uppercase;
+    text-align: center;
   }
 
   span {
