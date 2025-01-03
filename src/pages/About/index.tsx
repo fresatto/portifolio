@@ -151,6 +151,7 @@ const About: React.FC = () => {
           </SkillGroup>
         </SkillsSection>
       </InfoSection>
+      <InfoSection title="Depoimentos"></InfoSection>
     </Container>
   );
 };
