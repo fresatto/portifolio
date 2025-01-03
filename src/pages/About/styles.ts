@@ -53,12 +53,20 @@ export const SkillsSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  ${(props) => props.theme.media.largeDesktop} {
+    flex-direction: row;
+  }
 `;
 
 export const SkillGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  ${(props) => props.theme.media.largeDesktop} {
+    flex: 1;
+  }
 `;
 
 export const SkillsWrapper = styled.div`
