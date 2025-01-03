@@ -3,7 +3,13 @@ import { Typography } from "@mui/material";
 
 import InfoSection from "../../components/InfoSection";
 import Skill from "../../components/Skill";
-import { Container, SkillsWrapper, Stats } from "./styles";
+import {
+  Container,
+  SkillGroup,
+  SkillsSection,
+  SkillsWrapper,
+  Stats,
+} from "./styles";
 
 const About: React.FC = () => {
   return (
@@ -46,14 +52,25 @@ const About: React.FC = () => {
         </Stats>
       </InfoSection>
       <InfoSection title="Conhecimento">
-        <Typography variant="h3" mb="16px">
-          Programação
-        </Typography>
-        <SkillsWrapper>
-          <Skill title="React" percentageNumber={88} />
-          <Skill title="React Native" percentageNumber={89} />
-          <Skill title="Next JS" percentageNumber={67} />
-        </SkillsWrapper>
+        <SkillsSection>
+          <SkillGroup>
+            <Typography variant="h3">Programação</Typography>
+            <SkillsWrapper>
+              <Skill title="React" percentageNumber={88} />
+              <Skill title="React Native" percentageNumber={89} />
+              <Skill title="Next JS" percentageNumber={67} />
+              <Skill title="HTML" percentageNumber={89} />
+              <Skill title="JavaScript" percentageNumber={93} />
+              <Skill title="CSS" percentageNumber={91} />
+            </SkillsWrapper>
+          </SkillGroup>
+          <SkillGroup>
+            <Typography variant="h3">Idiomas</Typography>
+            <SkillsWrapper>
+              <Skill title="Inglês" percentageNumber={40} />
+            </SkillsWrapper>
+          </SkillGroup>
+        </SkillsSection>
       </InfoSection>
     </Container>
   );

@@ -49,6 +49,18 @@ export const Stats = styled.div`
   }
 `;
 
+export const SkillsSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+`;
+
+export const SkillGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
 export const SkillsWrapper = styled.div`
   display: flex;
   flex-direction: column;

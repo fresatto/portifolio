@@ -66,7 +66,12 @@ const Skill: React.FC<SkillProps> = ({ title, percentageNumber }) => {
   };
 
   return (
-    <Container variants={containerVariants} initial="hidden" animate="visible">
+    <Container
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <Header>
         <SkillName variants={skillNameVariants}>{title}</SkillName>
         <Percentage variants={percentageTextVariants}>
