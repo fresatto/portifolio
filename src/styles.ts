@@ -4,7 +4,7 @@ export const Container = styled.div`
   height: 100%;
 
   ${({ theme }) => theme.media.largeDesktop} {
-    padding: 100px 200px;
+    padding: 50px 50px;
     background: #eee;
   }
 `;
