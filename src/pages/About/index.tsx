@@ -2,11 +2,13 @@ import React from "react";
 import { Typography } from "@mui/material";
 
 import InfoSection from "../../components/InfoSection";
+import Skill from "../../components/Skill";
 import { Container, Stats } from "./styles";
 
 const About: React.FC = () => {
   return (
     <Container>
+      <Skill />
       <InfoSection title="Sobre">
         <Typography>
           My name is David Parker and I am a Web Designer, and I'm very
@@ -49,12 +51,7 @@ const About: React.FC = () => {
           Programação
         </Typography>
         <Typography>
-          My name is David Parker and I am a Web Designer, and I'm very
-          passionate and dedicated to my work. With 3 years experience as a
-          professional Web Designer, I have acquired the skills and knowledge
-          necessary to make your project a success. I enjoy every step of the
-          design process, from discussion and collaboration. Thanks a lot for
-          your attention and your trust!
+          <Skill />
         </Typography>
       </InfoSection>
     </Container>
