@@ -10,8 +10,45 @@ import {
   SkillsWrapper,
   Stats,
 } from "./styles";
+import Experience from "../../components/Experience";
 
 const About: React.FC = () => {
+  const experiences = [
+    {
+      name: "WeFit Data-Driven Design",
+      occupation: "Desenvolvedor Front-End (ReactJS & React Native)",
+      time: "2020-agora",
+    },
+    {
+      name: "JUNI | Optimization Always On (CRO)",
+      occupation: "Desenvolvedor Front-End",
+      time: "2019-2020",
+    },
+    {
+      name: "Systemhope",
+      occupation: "Desenvolvedor Front-End",
+      time: "2019-2019",
+    },
+    {
+      name: "Consultamais",
+      occupation: "Desenvolvedor Front-End",
+      time: "2018-2019",
+    },
+  ];
+
+  const educationals = [
+    {
+      name: "Universidade de Mogi das Cruzes",
+      occupation: "Sistemas de Informação",
+      time: "2012-2016",
+    },
+    {
+      name: "Udacity",
+      occupation: "Fundamentos Front-End",
+      time: "2018-2018",
+    },
+  ];
+
   return (
     <Container>
       <InfoSection title="Sobre">
@@ -68,6 +105,48 @@ const About: React.FC = () => {
             <Typography variant="h3">Idiomas</Typography>
             <SkillsWrapper>
               <Skill title="Inglês" percentageNumber={40} />
+            </SkillsWrapper>
+          </SkillGroup>
+        </SkillsSection>
+      </InfoSection>
+      <InfoSection title="Experiência">
+        <SkillsSection>
+          <SkillGroup>
+            <Typography variant="h3">Profissional</Typography>
+            <SkillsWrapper>
+              {experiences.map(({ name, occupation, time }, index, arr) => {
+                const lastItem = index === arr.length - 1;
+
+                return (
+                  <>
+                    <Experience
+                      name={name}
+                      occupation={occupation}
+                      time={time}
+                    />
+                    {!lastItem ? <hr /> : null}
+                  </>
+                );
+              })}
+            </SkillsWrapper>
+          </SkillGroup>
+          <SkillGroup>
+            <Typography variant="h3">Educacional</Typography>
+            <SkillsWrapper>
+              {educationals.map(({ name, occupation, time }, index, arr) => {
+                const lastItem = index === arr.length - 1;
+
+                return (
+                  <>
+                    <Experience
+                      name={name}
+                      occupation={occupation}
+                      time={time}
+                    />
+                    {!lastItem ? <hr /> : null}
+                  </>
+                );
+              })}
             </SkillsWrapper>
           </SkillGroup>
         </SkillsSection>
