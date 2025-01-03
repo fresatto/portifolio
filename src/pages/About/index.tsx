@@ -3,12 +3,11 @@ import { Typography } from "@mui/material";
 
 import InfoSection from "../../components/InfoSection";
 import Skill from "../../components/Skill";
-import { Container, Stats } from "./styles";
+import { Container, SkillsWrapper, Stats } from "./styles";
 
 const About: React.FC = () => {
   return (
     <Container>
-      <Skill />
       <InfoSection title="Sobre">
         <Typography>
           My name is David Parker and I am a Web Designer, and I'm very
@@ -50,9 +49,11 @@ const About: React.FC = () => {
         <Typography variant="h3" mb="16px">
           Programação
         </Typography>
-        <Typography>
-          <Skill />
-        </Typography>
+        <SkillsWrapper>
+          <Skill title="React" percentageNumber={88} />
+          <Skill title="React Native" percentageNumber={89} />
+          <Skill title="Next JS" percentageNumber={67} />
+        </SkillsWrapper>
       </InfoSection>
     </Container>
   );

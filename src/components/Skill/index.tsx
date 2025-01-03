@@ -9,10 +9,13 @@ import {
   SkillName,
 } from "./styles";
 
-const Skill: React.FC = () => {
-  const percentage = 40;
+type SkillProps = {
+  title: string;
+  percentageNumber: number;
+};
 
-  const percentageFormatted = percentage + "%";
+const Skill: React.FC<SkillProps> = ({ title, percentageNumber }) => {
+  const percentageFormatted = percentageNumber + "%";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,7 +45,9 @@ const Skill: React.FC = () => {
       left: percentageFormatted,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        type: "tween",
+        ease: [0.1, 0.9, 0.2, 1],
+        duration: 3,
         delay: 0.3,
       },
     },
@@ -55,7 +60,7 @@ const Skill: React.FC = () => {
       y: 0,
       transition: {
         delay: 0.6,
-        duration: 0.5,
+        duration: 0.8,
       },
     },
   };
@@ -63,8 +68,10 @@ const Skill: React.FC = () => {
   return (
     <Container variants={containerVariants} initial="hidden" animate="visible">
       <Header>
-        <SkillName variants={skillNameVariants}>WordPress</SkillName>
-        <Percentage variants={percentageTextVariants}>{percentage}%</Percentage>
+        <SkillName variants={skillNameVariants}>{title}</SkillName>
+        <Percentage variants={percentageTextVariants}>
+          {percentageFormatted}
+        </Percentage>
       </Header>
       <ProgressWrapper>
         <ProgressFill variants={percentageProgressFillVariants} />

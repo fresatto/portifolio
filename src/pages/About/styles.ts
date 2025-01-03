@@ -48,3 +48,10 @@ export const Stats = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 `;
+
+export const SkillsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+`;

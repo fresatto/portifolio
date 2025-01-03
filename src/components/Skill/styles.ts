@@ -1,9 +1,10 @@
-import { HTMLMotionProps, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 8px;
 `;
 
@@ -13,18 +14,14 @@ export const Header = styled(motion.div)`
 `;
 
 export const SkillName = styled(motion.div)`
-  color: ${(props) => props.theme.colors.text};
+  color: rgb(153, 153, 153);
 `;
 
 export const Percentage = styled(motion.div)`
   position: absolute;
   transform: translateX(-50%);
 
-  color: ${(props) => props.theme.colors.text};
-
-  ${(props) => props.theme.media.largeDesktop} {
-    transform: none;
-  }
+  color: rgb(153, 153, 153);
 `;
 
 export const ProgressWrapper = styled(motion.div)`
