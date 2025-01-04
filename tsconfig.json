@@ -14,7 +14,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["swiper"], // Inclui as tipagens do Swiper
+    "typeRoots": ["./node_modules/@types"] // Localiza tipagens instaladas
   },
-  "include": ["src", "src/react-app-env.d.ts"]
+  "include": ["src"]
 }

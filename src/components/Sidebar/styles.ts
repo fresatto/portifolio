@@ -8,6 +8,7 @@ export const Container = styled.aside`
 
   text-align: center;
   display: none;
+  flex-shrink: 0;
 
   ${({ theme }) => theme.media.largeDesktop} {
     display: flex;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Typography } from "@mui/material";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 import InfoSection from "../../components/InfoSection";
 import Skill from "../../components/Skill";
@@ -12,7 +11,7 @@ import {
   Stats,
 } from "./styles";
 import Experience from "../../components/Experience";
-import Testimonial from "./components/Testimonial";
+import TestimonialsSection from "./components/TestimonialsSection";
 
 const About: React.FC = () => {
   const experiences = [
@@ -153,10 +152,7 @@ const About: React.FC = () => {
           </SkillGroup>
         </SkillsSection>
       </InfoSection>
-      <InfoSection title="Depoimentos">
-        <FormatQuoteIcon fontSize="large" color="action" />
-        <Testimonial />
-      </InfoSection>
+      <TestimonialsSection />
     </Container>
   );
 };

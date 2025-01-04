@@ -9,6 +9,7 @@ import {
   ThemeProvider as MUIProvider,
   createTheme,
 } from "@mui/material/styles";
+import "swiper/css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

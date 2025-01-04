@@ -21,6 +21,7 @@ export const Content = styled.div`
   ${(props) => props.theme.media.largeDesktop} {
     section.content {
       padding: 50px;
+      width: 1px;
     }
   }
 `;
