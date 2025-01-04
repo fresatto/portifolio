@@ -6,15 +6,6 @@ import { Container } from "./styles";
 const phrases = ["Desenvolvedor Front-End", "React JS", "React Native", "Next"];
 
 const ExplosionCarousel = () => {
-  const containerVariants: Variants = {
-    visible: {
-      transition: {
-        staggerChildren: 2,
-        repeat: Infinity,
-      },
-    },
-  };
-
   const phrasesSeparatedByLetter = phrases.map((phrase) => phrase.split(""));
 
   const getRandomPosition = () => {
