@@ -11,15 +11,7 @@ const TestimonialsSection: React.FC = () => {
   return (
     <InfoSection title="Depoimentos">
       <FormatQuoteIcon fontSize="large" color="action" />
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={1}
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
-        // modules={[Autoplay, Pagination, Navigation]}
-      >
+      <Swiper spaceBetween={50} slidesPerView={1}>
         <SwiperSlide>
           <Testimonial />
         </SwiperSlide>
