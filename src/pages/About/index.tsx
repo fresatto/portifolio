@@ -3,15 +3,10 @@ import { Typography } from "@mui/material";
 
 import InfoSection from "../../components/InfoSection";
 import Skill from "../../components/Skill";
-import {
-  Container,
-  SkillGroup,
-  SkillsSection,
-  SkillsWrapper,
-  Stats,
-} from "./styles";
+import { SkillGroup, SkillsSection, SkillsWrapper, Stats } from "./styles";
 import Experience from "../../components/Experience";
 import TestimonialsSection from "./components/TestimonialsSection";
+import AnimatedPageContainer from "../../components/AnimatedPageContainer";
 
 const About: React.FC = () => {
   const experiences = [
@@ -51,7 +46,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <Container>
+    <AnimatedPageContainer>
       <InfoSection title="Sobre">
         <Typography>
           My name is David Parker and I am a Web Designer, and I'm very
@@ -153,7 +148,7 @@ const About: React.FC = () => {
         </SkillsSection>
       </InfoSection>
       <TestimonialsSection />
-    </Container>
+    </AnimatedPageContainer>
   );
 };
 
