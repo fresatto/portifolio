@@ -9,7 +9,7 @@ export const ContentContainer = styled.div`
 
 export const FilterWrapper = styled.div``;
 
-export const PortfolioItems = styled.div`
+export const PortfolioItems = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 24px;

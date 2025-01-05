@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 import {
   Overlay,
@@ -10,9 +10,10 @@ import {
 
 type PortfolioItemProps = {
   bgImage: string;
+  variants: Variants;
 };
 
-const PortfolioItem: React.FC<PortfolioItemProps> = ({ bgImage }) => {
+const PortfolioItem: React.FC<PortfolioItemProps> = ({ bgImage, variants }) => {
   const [hovered, setHovered] = useState(false);
 
   const overlayVariants: Variants = {
@@ -50,19 +51,21 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ bgImage }) => {
   };
 
   return (
-    <Container
-      initial="hidden"
-      animate={hovered ? "visible" : "hidden"}
-      bgImage={bgImage}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-    >
-      <Overlay variants={overlayVariants}>
-        <OverlayTitleWrapper variants={titleWrapperVariants}>
-          <OverlayTitle>Azul Viagens</OverlayTitle>
-        </OverlayTitleWrapper>
-      </Overlay>
-    </Container>
+    <motion.aside variants={variants}>
+      <Container
+        initial="hidden"
+        animate={hovered ? "visible" : "hidden"}
+        bgImage={bgImage}
+        onHoverStart={() => setHovered(true)}
+        onHoverEnd={() => setHovered(false)}
+      >
+        <Overlay variants={overlayVariants}>
+          <OverlayTitleWrapper variants={titleWrapperVariants}>
+            <OverlayTitle>Azul Viagens</OverlayTitle>
+          </OverlayTitleWrapper>
+        </Overlay>
+      </Container>
+    </motion.aside>
   );
 };
 
