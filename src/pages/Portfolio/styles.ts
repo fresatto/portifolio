@@ -29,7 +29,7 @@ type PortfolioItemProps = {
   bgImage: string;
 };
 
-export const PortfolioItem = styled.div<PortfolioItemProps>`
+export const PortfolioItem = styled(motion.div)<PortfolioItemProps>`
   position: relative;
 
   width: 100%;
@@ -60,8 +60,6 @@ export const Overlay = styled(motion.div)`
 `;
 
 export const OverlayTitleWrapper = styled(motion.div)`
-  /* position: absolute; */
-
   background: #eee;
   width: fit-content;
   padding: 16px;
