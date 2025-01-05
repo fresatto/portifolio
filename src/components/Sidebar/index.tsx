@@ -5,7 +5,7 @@ import { Container, Nav, SocialNetworks, StyledNavLink } from "./styles";
 const Sidebar: React.FC = () => {
   return (
     <Container className="sidebar">
-      <img src="https://i.pinimg.com/736x/90/11/3f/90113f0ebe42224eb0c567a3f820f066.jpg" />
+      <img src="https://i.pinimg.com/736x/3b/55/9f/3b559f613f431cb2680ada916e029a78.jpg" />
       <Nav>
         <ul>
           <StyledNavLink to="/">Inicío</StyledNavLink>

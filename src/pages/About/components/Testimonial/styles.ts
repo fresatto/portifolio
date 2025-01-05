@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
+  margin-top: 16px;
+
+  cursor: pointer;
 `;
 
 export const AuthorWrapper = styled(motion.div)`
@@ -23,6 +26,15 @@ export const AuthorWrapper = styled(motion.div)`
     flex-direction: column;
     gap: 4px;
   }
+`;
+
+export const AuthorTestimonial = styled(motion.p)`
+  font-size: 16px;
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const AuthorImage = styled(motion.img)`
+  object-fit: cover;
 `;
 
 export const AuthorTextWrapper = styled.div`
