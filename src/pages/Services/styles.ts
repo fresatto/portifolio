@@ -4,11 +4,19 @@ export const ServicesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  ${(props) => props.theme.media.largeDesktop} {
+    flex-direction: row;
+  }
 `;
 
 export const ServiceWrapper = styled.div`
   border: 1px solid #eee;
   padding: 32px;
+
+  ${(props) => props.theme.media.largeDesktop} {
+    width: 50%;
+  }
 
   > img {
     width: 40px;
