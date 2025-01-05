@@ -14,12 +14,12 @@ export const Content = styled.div`
   section.content {
     background: #fff;
     flex: 1;
-    height: 100%;
-    padding: 40px 16px 16px;
+    padding: 40px 16px;
   }
 
   ${(props) => props.theme.media.largeDesktop} {
     section.content {
+      height: 100%;
       padding: 50px;
       width: 1px;
     }

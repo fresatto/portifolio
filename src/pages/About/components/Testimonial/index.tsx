@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { motion, useAnimate, Variants } from "framer-motion";
-import { Typography } from "@mui/material";
+import React from "react";
+import { motion } from "framer-motion";
 
 import {
   Container,
@@ -10,6 +9,7 @@ import {
   AuthorRegularText,
   AuthorTestimonial,
 } from "./styles";
+
 import { useTestimonialAnimationsVariants } from "./useTestimonialAnimationsVariants";
 
 type TestimonialProps = {
