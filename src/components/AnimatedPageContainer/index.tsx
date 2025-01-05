@@ -1,4 +1,4 @@
-import { Variants } from "framer-motion";
+import { AnimatePresence, Variants } from "framer-motion";
 import React, { PropsWithChildren } from "react";
 
 import { Container } from "./styles";
@@ -21,13 +21,11 @@ const AnimatedPageContainer: React.FC<PropsWithChildren> = ({ children }) => {
   };
 
   return (
-    <Container
-      variants={entranceVariants}
-      initial="hidden"
-      whileInView="visible"
-    >
-      {children}
-    </Container>
+    <AnimatePresence>
+      <Container variants={entranceVariants} initial="hidden" animate="visible">
+        {children}
+      </Container>
+    </AnimatePresence>
   );
 };
 

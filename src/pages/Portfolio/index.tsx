@@ -15,30 +15,31 @@ import {
 import { Variants } from "framer-motion";
 
 const Portfolio: React.FC = () => {
-  const portfolioVariants: Variants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 1,
-      },
-    },
-  };
-
   const overlayVariants: Variants = {
     hidden: {
       opacity: 0,
     },
     visible: {
       opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
     },
   };
 
   const titleWrapperVariants: Variants = {
     hidden: {
+      position: "relative",
+      top: -10,
       opacity: 0,
     },
     visible: {
       opacity: 1,
+      top: 0,
+      transition: {
+        duration: 1,
+        delay: 0.2,
+      },
     },
   };
 
@@ -52,14 +53,24 @@ const Portfolio: React.FC = () => {
 
           <PortfolioItems>
             <PortfolioItem
-              variants={portfolioVariants}
               initial="hidden"
               whileHover="visible"
               bgImage="https://i.pinimg.com/736x/46/95/ab/4695ab2e031f45be1a1a2f2dbe722826.jpg"
             >
               <Overlay variants={overlayVariants}>
                 <OverlayTitleWrapper variants={titleWrapperVariants}>
-                  {/* <OverlayTitle>Azul Viagens</OverlayTitle> */}
+                  <OverlayTitle>Azul Viagens</OverlayTitle>
+                </OverlayTitleWrapper>
+              </Overlay>
+            </PortfolioItem>
+            <PortfolioItem
+              initial="hidden"
+              whileHover="visible"
+              bgImage="https://i.pinimg.com/736x/46/95/ab/4695ab2e031f45be1a1a2f2dbe722826.jpg"
+            >
+              <Overlay variants={overlayVariants}>
+                <OverlayTitleWrapper variants={titleWrapperVariants}>
+                  <OverlayTitle>Azul Viagens</OverlayTitle>
                 </OverlayTitleWrapper>
               </Overlay>
             </PortfolioItem>
