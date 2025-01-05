@@ -17,6 +17,7 @@ export const theme = {
     tablet: "768px",
     desktop: "992px",
     largeDesktop: "1200px",
+    insanity: "1200px",
   },
 
   media: {
@@ -24,6 +25,7 @@ export const theme = {
     tablet: `@media (min-width: 768px)`,
     desktop: `@media (min-width: 992px)`,
     largeDesktop: `@media (min-width: 1200px)`,
+    insanity: `@media (min-width: 1400px)`,
   },
 };
 
