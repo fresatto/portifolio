@@ -18,5 +18,5 @@
     "types": ["swiper"], // Inclui as tipagens do Swiper
     "typeRoots": ["./node_modules/@types"] // Localiza tipagens instaladas
   },
-  "include": ["src"]
+  "include": ["src", "src/types/global.d.ts"]
 }
