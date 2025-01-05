@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const ContentContainer = styled.div`
@@ -29,6 +30,8 @@ type PortfolioItemProps = {
 };
 
 export const PortfolioItem = styled.div<PortfolioItemProps>`
+  position: relative;
+
   width: 100%;
   height: 400px;
 
@@ -42,4 +45,30 @@ export const PortfolioItem = styled.div<PortfolioItemProps>`
   &:hover {
     background-size: 105%;
   }
+`;
+
+export const Overlay = styled(motion.div)`
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const OverlayTitleWrapper = styled(motion.div)`
+  /* position: absolute; */
+
+  background: #eee;
+  width: fit-content;
+  padding: 16px;
+`;
+
+export const OverlayTitle = styled(motion.h4)`
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
 `;
