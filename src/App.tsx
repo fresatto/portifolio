@@ -8,6 +8,7 @@ import MainLayout from "./layouts/MainLayout";
 import Initial from "./pages/Initial";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import Portfolio from "./pages/Portfolio";
 
 import { Container } from "./styles";
 
@@ -19,6 +20,7 @@ function App() {
           <Route index element={<Initial />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Portfolio />} />
         </Route>
       </Routes>
     </Container>

@@ -11,6 +11,7 @@ const Sidebar: React.FC = () => {
           <StyledNavLink to="/">Inicío</StyledNavLink>
           <StyledNavLink to="/about">Sobre</StyledNavLink>
           <StyledNavLink to="/services">Serviços</StyledNavLink>
+          <StyledNavLink to="/portfolio">Portfólio</StyledNavLink>
           <StyledNavLink to="/contact">Contato</StyledNavLink>
         </ul>
       </Nav>
