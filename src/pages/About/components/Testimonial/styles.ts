@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 16px;
+  position: relative;
 
   cursor: pointer;
 `;

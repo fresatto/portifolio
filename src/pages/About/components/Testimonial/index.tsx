@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimate, Variants } from "framer-motion";
 import { Typography } from "@mui/material";
 
@@ -10,67 +10,32 @@ import {
   AuthorRegularText,
   AuthorTestimonial,
 } from "./styles";
+import { useTestimonialAnimationsVariants } from "./useTestimonialAnimationsVariants";
 
-const Testimonial: React.FC = () => {
-  const testimonialVariants: Variants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        ease: "easeIn",
-      },
-    },
-  };
+type TestimonialProps = {
+  blockContainerAnimation: boolean;
+  onFirstContainerAnimationCompleted?: () => void;
+};
 
-  const imageVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      scale: 1.05,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1,
-        ease: "easeIn",
-      },
-    },
-  };
-
-  const personNameVariants: Variants = {
-    hidden: {
-      bottom: "-10px",
-      opacity: 0,
-    },
-    visible: {
-      bottom: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        delay: 0.3,
-      },
-    },
-  };
-  const occupationVariants: Variants = {
-    hidden: {
-      bottom: "-10px",
-      opacity: 0,
-    },
-    visible: {
-      bottom: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        delay: 0.6,
-      },
-    },
-  };
+const Testimonial: React.FC<TestimonialProps> = ({
+  blockContainerAnimation,
+  onFirstContainerAnimationCompleted,
+}) => {
+  const {
+    imageVariants,
+    mainContainerVariants,
+    occupationVariants,
+    personNameVariants,
+    testimonialVariants,
+  } = useTestimonialAnimationsVariants();
 
   return (
-    <Container>
+    <Container
+      variants={mainContainerVariants}
+      initial="hidden"
+      whileInView={blockContainerAnimation ? undefined : "visible"}
+      onAnimationComplete={onFirstContainerAnimationCompleted}
+    >
       <AuthorTestimonial
         initial="hidden"
         whileInView="visible"
