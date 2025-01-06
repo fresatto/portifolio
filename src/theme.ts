@@ -17,7 +17,7 @@ export const theme = {
     tablet: "768px",
     desktop: "992px",
     largeDesktop: "1200px",
-    insanity: "1200px",
+    insanity: "1400px",
   },
 
   media: {

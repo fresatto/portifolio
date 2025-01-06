@@ -7,6 +7,7 @@ import {
   OverlayTitleWrapper,
   Container,
 } from "./styles";
+import { desktopMediaQuery, useMediaQuery } from "../../../hooks/useMediaQuery";
 
 type PortfolioItemProps = {
   bgImage: string;
@@ -15,6 +16,8 @@ type PortfolioItemProps = {
 
 const PortfolioItem: React.FC<PortfolioItemProps> = ({ bgImage, variants }) => {
   const [hovered, setHovered] = useState(false);
+
+  const isDesktop = useMediaQuery(desktopMediaQuery);
 
   const overlayVariants: Variants = {
     hidden: {
@@ -50,15 +53,25 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ bgImage, variants }) => {
     },
   };
 
+  const getContainerAnimatedProps = () => {
+    if (isDesktop) {
+      return {
+        animate: hovered ? "visible" : "hidden",
+        onHoverStart: () => setHovered(true),
+        onHoverEnd: () => setHovered(false),
+      };
+    }
+
+    return {
+      whileInView: "visible",
+    };
+  };
+
+  const containerAnimatedProps = getContainerAnimatedProps();
+
   return (
     <motion.aside variants={variants}>
-      <Container
-        initial="hidden"
-        animate={hovered ? "visible" : "hidden"}
-        bgImage={bgImage}
-        onHoverStart={() => setHovered(true)}
-        onHoverEnd={() => setHovered(false)}
-      >
+      <Container initial="hidden" bgImage={bgImage} {...containerAnimatedProps}>
         <Overlay variants={overlayVariants}>
           <OverlayTitleWrapper variants={titleWrapperVariants}>
             <OverlayTitle>Azul Viagens</OverlayTitle>
