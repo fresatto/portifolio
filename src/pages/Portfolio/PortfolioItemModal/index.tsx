@@ -1,15 +1,17 @@
-import { Modal, Typography } from "@mui/material";
 import React from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import { Modal, Typography } from "@mui/material";
+
 import { projects } from "..";
 import {
   Content,
   DescriptionWrapper,
+  Header,
+  HeaderOverlay,
   SkillChip,
   Skills,
   TitleWrapper,
 } from "./styles";
-
-// import { Container } from './styles';
 
 type PortfolioItemModalProps = {
   open: boolean;
@@ -39,7 +41,13 @@ const PortfolioItemModal: React.FC<PortfolioItemModalProps> = ({
       }}
     >
       <Content>
-        <img src={bgImage} />
+        <Header>
+          <img src={bgImage} />
+          <HeaderOverlay />
+          <button onClick={onClose}>
+            <CloseIcon htmlColor="#fff" />
+          </button>
+        </Header>
 
         <DescriptionWrapper>
           <TitleWrapper>

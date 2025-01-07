@@ -11,17 +11,40 @@ export const Content = styled.div`
 
   background-color: #fff;
 
-  > img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    filter: grayscale(1);
-  }
-
   ${(props) => props.theme.media.desktop} {
     max-width: 800px;
     max-height: 80vh;
   }
+`;
+
+export const Header = styled.div`
+  width: 100%;
+  height: 200px;
+
+  position: relative;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+  }
+
+  > button {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+  }
+`;
+
+export const HeaderOverlay = styled.div`
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export const TitleWrapper = styled.div`
