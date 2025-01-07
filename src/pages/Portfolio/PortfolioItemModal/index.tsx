@@ -2,7 +2,8 @@ import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { Modal, Typography } from "@mui/material";
 
-import { projects } from "..";
+import { ProjectId, projects } from "../projects";
+
 import {
   Content,
   DescriptionWrapper,
@@ -15,14 +16,28 @@ import {
 
 type PortfolioItemModalProps = {
   open: boolean;
+  currentPortfolioId?: ProjectId;
   onClose: () => void;
 };
 
 const PortfolioItemModal: React.FC<PortfolioItemModalProps> = ({
   open,
   onClose,
+  currentPortfolioId,
 }) => {
-  const { bgImage } = projects[0];
+  const getProjectInfo = () => {
+    if (!currentPortfolioId) return null;
+
+    return projects.find((p) => p.projectId === currentPortfolioId);
+  };
+
+  console.log(
+    currentPortfolioId,
+    projects,
+    projects.find((p) => p.projectId === currentPortfolioId)
+  );
+
+  const projectInfo = getProjectInfo();
 
   return (
     <Modal
@@ -42,7 +57,7 @@ const PortfolioItemModal: React.FC<PortfolioItemModalProps> = ({
     >
       <Content>
         <Header>
-          <img src={bgImage} />
+          <img src={projectInfo?.bgImage} />
           <HeaderOverlay />
           <button onClick={onClose}>
             <CloseIcon htmlColor="#fff" />
@@ -52,19 +67,15 @@ const PortfolioItemModal: React.FC<PortfolioItemModalProps> = ({
         <DescriptionWrapper>
           <TitleWrapper>
             <Typography variant="h3" id="child-modal-title">
-              Azul
+              {projectInfo?.name}
             </Typography>
 
             <Skills>
-              <SkillChip>
-                <span>React</span>
-              </SkillChip>
-              <SkillChip>
-                <span>React Native</span>
-              </SkillChip>
-              <SkillChip>
-                <span>Typescript</span>
-              </SkillChip>
+              {projectInfo?.techs.map((tech) => (
+                <SkillChip key={`${tech}-${currentPortfolioId}`}>
+                  <span>{tech}</span>
+                </SkillChip>
+              ))}
             </Skills>
           </TitleWrapper>
           <Typography id="child-modal-description">
