@@ -13,12 +13,14 @@ type PortfolioItemProps = {
   name: string;
   bgImage: string;
   variants: Variants;
+  onClick: () => void;
 };
 
 const PortfolioItem: React.FC<PortfolioItemProps> = ({
   name,
   bgImage,
   variants,
+  onClick,
 }) => {
   const [hovered, setHovered] = useState(false);
 
@@ -75,7 +77,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
   const containerAnimatedProps = getContainerAnimatedProps();
 
   return (
-    <motion.aside variants={variants}>
+    <motion.aside variants={variants} onClick={onClick}>
       <Container initial="hidden" bgImage={bgImage} {...containerAnimatedProps}>
         <Overlay variants={overlayVariants}>
           <OverlayTitleWrapper variants={titleWrapperVariants}>

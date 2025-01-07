@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import InfoSection from "../../components/InfoSection";
 import AnimatedPageContainer from "../../components/AnimatedPageContainer";
@@ -6,8 +6,9 @@ import { Typography } from "@mui/material";
 import { ContentContainer, FilterWrapper, PortfolioItems } from "./styles";
 import PortfolioItem from "./PortfolioItem";
 import { Variants } from "framer-motion";
+import PortfolioItemModal from "./PortfolioItemModal";
 
-const projects = [
+export const projects = [
   {
     name: "Azul",
     bgImage:
@@ -48,6 +49,13 @@ const Portfolio: React.FC = () => {
     },
   };
 
+  const [portfolioItemModalOpened, setPortfolioItemModalOpened] =
+    useState(false);
+
+  const handleOnPortfolioItemClick = (itemId: string = "teste") => {
+    setPortfolioItemModalOpened(true);
+  };
+
   return (
     <AnimatedPageContainer>
       <InfoSection title="Portifólio">
@@ -72,11 +80,17 @@ const Portfolio: React.FC = () => {
                 variants={porfolioItemVariants}
                 bgImage={bgImage}
                 name={name}
+                onClick={handleOnPortfolioItemClick}
               />
             ))}
           </PortfolioItems>
         </ContentContainer>
       </InfoSection>
+
+      <PortfolioItemModal
+        open={portfolioItemModalOpened}
+        onClose={() => setPortfolioItemModalOpened(false)}
+      />
     </AnimatedPageContainer>
   );
 };
