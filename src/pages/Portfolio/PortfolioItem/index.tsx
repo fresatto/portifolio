@@ -10,11 +10,16 @@ import {
 import { desktopMediaQuery, useMediaQuery } from "../../../hooks/useMediaQuery";
 
 type PortfolioItemProps = {
+  name: string;
   bgImage: string;
   variants: Variants;
 };
 
-const PortfolioItem: React.FC<PortfolioItemProps> = ({ bgImage, variants }) => {
+const PortfolioItem: React.FC<PortfolioItemProps> = ({
+  name,
+  bgImage,
+  variants,
+}) => {
   const [hovered, setHovered] = useState(false);
 
   const isDesktop = useMediaQuery(desktopMediaQuery);
@@ -74,7 +79,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({ bgImage, variants }) => {
       <Container initial="hidden" bgImage={bgImage} {...containerAnimatedProps}>
         <Overlay variants={overlayVariants}>
           <OverlayTitleWrapper variants={titleWrapperVariants}>
-            <OverlayTitle>Azul Viagens</OverlayTitle>
+            <OverlayTitle>{name}</OverlayTitle>
           </OverlayTitleWrapper>
         </Overlay>
       </Container>

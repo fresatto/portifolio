@@ -7,6 +7,29 @@ import { ContentContainer, FilterWrapper, PortfolioItems } from "./styles";
 import PortfolioItem from "./PortfolioItem";
 import { Variants } from "framer-motion";
 
+const projects = [
+  {
+    name: "Azul",
+    bgImage:
+      "https://i.pinimg.com/736x/40/b8/c7/40b8c72612406b8350ae0520351e0887.jpg",
+  },
+  {
+    name: "Hapvida",
+    bgImage:
+      "https://i.pinimg.com/736x/e7/35/62/e7356280b7f86c2034a5cf32e9c554f9.jpg",
+  },
+  {
+    name: "NDI SP",
+    bgImage:
+      "https://i.pinimg.com/736x/78/52/6d/78526dbcdc8934f9fdebed6d5069549f.jpg",
+  },
+  {
+    name: "Consultamais",
+    bgImage:
+      "https://i.pinimg.com/736x/07/7d/2e/077d2ef8979c89fab96d4c646005fa01.jpg",
+  },
+];
+
 const Portfolio: React.FC = () => {
   const portfolioItemsWrapper: Variants = {
     hidden: {},
@@ -43,30 +66,14 @@ const Portfolio: React.FC = () => {
             initial="hidden"
             animate="visible"
           >
-            <PortfolioItem
-              variants={porfolioItemVariants}
-              bgImage="https://i.pinimg.com/736x/40/b8/c7/40b8c72612406b8350ae0520351e0887.jpg"
-            />
-            <PortfolioItem
-              variants={porfolioItemVariants}
-              bgImage="https://i.pinimg.com/736x/e7/35/62/e7356280b7f86c2034a5cf32e9c554f9.jpg"
-            />
-            <PortfolioItem
-              variants={porfolioItemVariants}
-              bgImage="https://i.pinimg.com/736x/40/b8/c7/40b8c72612406b8350ae0520351e0887.jpg"
-            />
-            <PortfolioItem
-              variants={porfolioItemVariants}
-              bgImage="https://i.pinimg.com/736x/e7/35/62/e7356280b7f86c2034a5cf32e9c554f9.jpg"
-            />
-            <PortfolioItem
-              variants={porfolioItemVariants}
-              bgImage="https://i.pinimg.com/736x/40/b8/c7/40b8c72612406b8350ae0520351e0887.jpg"
-            />
-            <PortfolioItem
-              variants={porfolioItemVariants}
-              bgImage="https://i.pinimg.com/736x/e7/35/62/e7356280b7f86c2034a5cf32e9c554f9.jpg"
-            />
+            {projects.map(({ bgImage, name }) => (
+              <PortfolioItem
+                key={bgImage}
+                variants={porfolioItemVariants}
+                bgImage={bgImage}
+                name={name}
+              />
+            ))}
           </PortfolioItems>
         </ContentContainer>
       </InfoSection>
