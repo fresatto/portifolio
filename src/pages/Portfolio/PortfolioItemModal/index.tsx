@@ -1,7 +1,13 @@
-import { Modal } from "@mui/material";
+import { Modal, Typography } from "@mui/material";
 import React from "react";
 import { projects } from "..";
-import { Content, DescriptionWrapper, Footer } from "./styles";
+import {
+  Content,
+  DescriptionWrapper,
+  SkillChip,
+  Skills,
+  TitleWrapper,
+} from "./styles";
 
 // import { Container } from './styles';
 
@@ -36,13 +42,36 @@ const PortfolioItemModal: React.FC<PortfolioItemModalProps> = ({
         <img src={bgImage} />
 
         <DescriptionWrapper>
-          <h2 id="child-modal-title">Text in a child modal</h2>
-          <p id="child-modal-description"></p>
-        </DescriptionWrapper>
+          <TitleWrapper>
+            <Typography variant="h3" id="child-modal-title">
+              Azul
+            </Typography>
 
-        <Footer>
-          <button onClick={onClose}>Fechar</button>
-        </Footer>
+            <Skills>
+              <SkillChip>
+                <span>React</span>
+              </SkillChip>
+              <SkillChip>
+                <span>React Native</span>
+              </SkillChip>
+              <SkillChip>
+                <span>Typescript</span>
+              </SkillChip>
+            </Skills>
+          </TitleWrapper>
+          <Typography id="child-modal-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+            aliquid deserunt quis ducimus eum numquam. Minima eveniet autem hic
+            voluptatum adipisci reprehenderit, ad excepturi earum harum, natus
+            non distinctio nam?
+          </Typography>
+          <Typography id="child-modal-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+            aliquid deserunt quis ducimus eum numquam. Minima eveniet autem hic
+            voluptatum adipisci reprehenderit, ad excepturi earum harum, natus
+            non distinctio nam?
+          </Typography>
+        </DescriptionWrapper>
 
         {/* <Button onClick={handleClose}>Close Child Modal</Button> */}
       </Content>
