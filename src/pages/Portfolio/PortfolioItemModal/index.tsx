@@ -1,8 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { Modal, Typography } from "@mui/material";
 
 import { ProjectId, projects } from "../projects";
+
+import HapvidaContent from "./components/HapvidaContent";
+import AzulContent from "./components/AzulContent";
+import NDIContent from "./components/NDIContent";
+import ConsultamaisContent from "./components/ConsultamaisContent";
 
 import {
   Content,
@@ -25,17 +30,18 @@ const PortfolioItemModal: React.FC<PortfolioItemModalProps> = ({
   onClose,
   currentPortfolioId,
 }) => {
+  const projectsContents: Record<ProjectId, any> = {
+    [ProjectId.Hapvida]: <HapvidaContent />,
+    [ProjectId.Azul]: <AzulContent />,
+    [ProjectId.NDI]: <NDIContent />,
+    [ProjectId.Consultamais]: <ConsultamaisContent />,
+  };
+
   const getProjectInfo = () => {
     if (!currentPortfolioId) return null;
 
     return projects.find((p) => p.projectId === currentPortfolioId);
   };
-
-  console.log(
-    currentPortfolioId,
-    projects,
-    projects.find((p) => p.projectId === currentPortfolioId)
-  );
 
   const projectInfo = getProjectInfo();
 
@@ -78,21 +84,8 @@ const PortfolioItemModal: React.FC<PortfolioItemModalProps> = ({
               ))}
             </Skills>
           </TitleWrapper>
-          <Typography id="child-modal-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-            aliquid deserunt quis ducimus eum numquam. Minima eveniet autem hic
-            voluptatum adipisci reprehenderit, ad excepturi earum harum, natus
-            non distinctio nam?
-          </Typography>
-          <Typography id="child-modal-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-            aliquid deserunt quis ducimus eum numquam. Minima eveniet autem hic
-            voluptatum adipisci reprehenderit, ad excepturi earum harum, natus
-            non distinctio nam?
-          </Typography>
+          {currentPortfolioId ? projectsContents[currentPortfolioId] : null}
         </DescriptionWrapper>
-
-        {/* <Button onClick={handleClose}>Close Child Modal</Button> */}
       </Content>
     </Modal>
   );
