@@ -19,3 +19,13 @@ export const Container = styled.header`
     border-radius: 50%;
   }
 `;
+
+export const DrawerContent = styled.div`
+  padding: 40px;
+
+  width: 50vw;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;

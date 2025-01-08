@@ -1,6 +1,8 @@
 import React from "react";
+import { menuItems } from "../../constants/nav";
+import StyledNavLink from "../StyledNavLink";
 
-import { Container, Nav, SocialNetworks, StyledNavLink } from "./styles";
+import { Container, Nav, SocialNetworks } from "./styles";
 
 const Sidebar: React.FC = () => {
   return (
@@ -8,11 +10,11 @@ const Sidebar: React.FC = () => {
       <img src="https://i.pinimg.com/736x/3b/55/9f/3b559f613f431cb2680ada916e029a78.jpg" />
       <Nav>
         <ul>
-          <StyledNavLink to="/">Inicío</StyledNavLink>
-          <StyledNavLink to="/about">Sobre</StyledNavLink>
-          <StyledNavLink to="/services">Serviços</StyledNavLink>
-          <StyledNavLink to="/portfolio">Portfólio</StyledNavLink>
-          <StyledNavLink to="/contact">Contato</StyledNavLink>
+          {menuItems.map(({ routeName, path }) => (
+            <StyledNavLink key={routeName} to={path}>
+              {routeName}
+            </StyledNavLink>
+          ))}
         </ul>
       </Nav>
       <SocialNetworks>

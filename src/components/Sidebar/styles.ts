@@ -33,14 +33,6 @@ export const Nav = styled.nav`
   }
 `;
 
-export const StyledNavLink = styled(NavLink)`
-  color: ${(props) => props.theme.colors.text};
-
-  &.active {
-    color: ${(props) => props.theme.colors.textBold};
-  }
-`;
-
 export const SocialNetworks = styled.div`
   color: var(--font-color);
 
