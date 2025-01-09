@@ -49,12 +49,14 @@ const About: React.FC = () => {
     <AnimatedPageContainer>
       <InfoSection title="Sobre">
         <Typography>
-          My name is David Parker and I am a Web Designer, and I'm very
-          passionate and dedicated to my work. With 3 years experience as a
-          professional Web Designer, I have acquired the skills and knowledge
-          necessary to make your project a success. I enjoy every step of the
-          design process, from discussion and collaboration. Thanks a lot for
-          your attention and your trust!
+          Olá! Meu nome é Gabriel e, desde 2018, atuo como desenvolvedor
+          Front-End, focado em criar experiências digitais incríveis. Minha
+          especialidade é o desenvolvimento com{" "}
+          <strong>React e React Native</strong>, mas ao longo da minha
+          trajetória, também trabalhei em diversos tipos de projetos que
+          ampliaram minha visão e habilidades. Sou apaixonado pelo que faço e
+          estou sempre pronto para ajudar as pessoas a transformar ideias em
+          algo extraordinário.
         </Typography>
         <hr />
         <Stats>

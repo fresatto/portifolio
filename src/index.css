@@ -169,6 +169,10 @@ button {
   background: none;
 }
 
+strong {
+  font-weight: 400;
+}
+
 /* Remove bordas e estilos padrão de inputs */
 input,
 textarea,
