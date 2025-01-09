@@ -8,6 +8,7 @@ import InfoSection from "../../components/InfoSection";
 import CustomInput from "../../components/CustomInput";
 import { formSchema } from "./schema";
 import { MessageInput, ThreeInputsWrapper } from "./styles";
+import Button from "../../components/Button";
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -35,7 +36,8 @@ const Contact: React.FC = () => {
               />
             </ThreeInputsWrapper>
             <MessageInput name="message" label="Mensagem" schema={formSchema} />
-            {/* <button type="submit">Enviar</button> */}
+
+            <Button>Teste</Button>
           </form>
         </FormProvider>
       </InfoSection>
