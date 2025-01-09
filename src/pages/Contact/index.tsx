@@ -7,6 +7,7 @@ import AnimatedPageContainer from "../../components/AnimatedPageContainer";
 import InfoSection from "../../components/InfoSection";
 import CustomInput from "../../components/CustomInput";
 import { formSchema } from "./schema";
+import { MessageInput, ThreeInputsWrapper } from "./styles";
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -24,9 +25,17 @@ const Contact: React.FC = () => {
       <InfoSection title="Entrar em contato">
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <CustomInput name="username" label="Username" schema={formSchema} />
-            <CustomInput name="email" label="Email" schema={formSchema} />
-            <button type="submit">Enviar</button>
+            <ThreeInputsWrapper>
+              <CustomInput name="username" label="Nome" schema={formSchema} />
+              <CustomInput name="email" label="Email" schema={formSchema} />
+              <CustomInput
+                name="cellphone"
+                label="Telefone"
+                schema={formSchema}
+              />
+            </ThreeInputsWrapper>
+            <MessageInput name="message" label="Mensagem" schema={formSchema} />
+            {/* <button type="submit">Enviar</button> */}
           </form>
         </FormProvider>
       </InfoSection>
