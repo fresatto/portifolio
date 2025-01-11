@@ -5,6 +5,7 @@ export const Content = styled.div`
   flex-direction: column;
   height: 100%;
   gap: 0;
+  z-index: 15;
 
   ${({ theme }) => theme.media.largeDesktop} {
     gap: 40px;

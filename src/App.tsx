@@ -12,10 +12,12 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 
 import { Container } from "./styles";
+import ParticleBackground from "./components/Bg";
 
 function App() {
   return (
     <Container className="App">
+      <ParticleBackground />
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<Initial />} />

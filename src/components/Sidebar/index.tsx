@@ -18,11 +18,6 @@ const Sidebar: React.FC = () => {
         </ul>
       </Nav>
       <SocialNetworks>
-        <p>
-          Copyright © 2024 by <strong>Marketify</strong>
-          <br /> All rights are reserved
-        </p>
-
         {/* TODO: Adicionar redes sociais */}
         <span>Redes Sociais</span>
       </SocialNetworks>

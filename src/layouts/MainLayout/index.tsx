@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router";
+import BG from "../../components/Bg";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 
