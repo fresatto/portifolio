@@ -39,17 +39,8 @@ const Portfolio: React.FC = () => {
 
   return (
     <AnimatedPageContainer>
-      <InfoSection title="Portifólio">
+      <InfoSection title="Principais Projetos">
         <ContentContainer>
-          <FilterWrapper>
-            <Typography>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
-              pariatur, laudantium dolorum debitis maxime perspiciatis sed esse
-              quasi quo consequuntur cumque, labore impedit minima velit dolores
-              delectus dolore illum quia!
-            </Typography>
-          </FilterWrapper>
-
           <PortfolioItems
             variants={portfolioItemsWrapper}
             initial="hidden"

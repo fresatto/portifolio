@@ -9,6 +9,7 @@ export type Project = {
   projectId: ProjectId;
   name: string;
   bgImage: string;
+  disabled?: boolean;
   techs: string[];
 };
 
@@ -29,7 +30,7 @@ export const projects: Project[] = [
   },
   {
     projectId: ProjectId.NDI,
-    name: "NDI SP",
+    name: "GNDI",
     bgImage:
       "https://i.pinimg.com/736x/78/52/6d/78526dbcdc8934f9fdebed6d5069549f.jpg",
     techs: ["React Native", "typescript"],
@@ -37,6 +38,7 @@ export const projects: Project[] = [
   {
     projectId: ProjectId.Consultamais,
     name: "Consultamais",
+    disabled: true,
     bgImage:
       "https://i.pinimg.com/736x/07/7d/2e/077d2ef8979c89fab96d4c646005fa01.jpg",
     techs: ["PHP", "jQuery", "Bootstrap"],
