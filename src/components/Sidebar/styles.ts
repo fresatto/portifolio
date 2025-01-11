@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.aside`
   padding: 16px;
   background: #fff;
-  width: 300px;
+  width: 350px;
 
   text-align: center;
   display: none;
@@ -16,6 +16,10 @@ export const Container = styled.aside`
     align-items: center;
     justify-content: center;
     gap: 32px;
+  }
+
+  ${({ theme }) => theme.media.containerLarge} {
+    width: 400px;
   }
 
   img {

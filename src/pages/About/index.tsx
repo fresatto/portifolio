@@ -12,7 +12,7 @@ const About: React.FC = () => {
   const experiences = [
     {
       name: "WeFit Data-Driven Design",
-      occupation: "Desenvolvedor Front-End (ReactJS & React Native)",
+      occupation: "Desenvolvedor Front-End",
       time: "2020-agora",
     },
     {

@@ -25,12 +25,6 @@ const Contact: React.FC = () => {
   return (
     <AnimatedPageContainer>
       <InfoSection title="Entrar em contato">
-        <Typography mb="16px">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum aut
-          aspernatur, aliquid dolor repudiandae itaque voluptate ratione magnam
-          fugit est laboriosam ea quasi voluptatem sunt dignissimos eum sapiente
-          distinctio! Ratione.
-        </Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <ThreeInputsWrapper>

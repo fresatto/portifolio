@@ -4,7 +4,12 @@ export const Container = styled.div`
   height: 100%;
 
   ${({ theme }) => theme.media.largeDesktop} {
-    padding: 50px 50px;
+    padding: 50px;
+    background: #eee;
+  }
+
+  ${({ theme }) => theme.media.containerLarge} {
+    padding: 100px 250px;
     background: #eee;
   }
 `;
