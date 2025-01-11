@@ -37,6 +37,8 @@ const Portfolio: React.FC = () => {
     setPortfolioItemModalOpened(true);
   };
 
+  const filteredProjects = projects.filter((p) => !p.disabled);
+
   return (
     <AnimatedPageContainer>
       <InfoSection title="Principais Projetos">
@@ -46,7 +48,7 @@ const Portfolio: React.FC = () => {
             initial="hidden"
             animate="visible"
           >
-            {projects.map(({ projectId, bgImage, name }) => (
+            {filteredProjects.map(({ projectId, bgImage, name }) => (
               <PortfolioItem
                 key={projectId}
                 variants={porfolioItemVariants}
