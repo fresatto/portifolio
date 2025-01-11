@@ -18,7 +18,7 @@ export const projects: Project[] = [
     projectId: ProjectId.Hapvida,
     name: "Hapvida",
     bgImage:
-      "https://i.pinimg.com/736x/e7/35/62/e7356280b7f86c2034a5cf32e9c554f9.jpg",
+      "https://i.pinimg.com/736x/78/52/6d/78526dbcdc8934f9fdebed6d5069549f.jpg",
     techs: ["React Native", "typescript"],
   },
   {
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     projectId: ProjectId.NDI,
     name: "GNDI",
     bgImage:
-      "https://i.pinimg.com/736x/78/52/6d/78526dbcdc8934f9fdebed6d5069549f.jpg",
+      "https://i.pinimg.com/736x/e7/35/62/e7356280b7f86c2034a5cf32e9c554f9.jpg",
     techs: ["React Native", "typescript"],
   },
   {

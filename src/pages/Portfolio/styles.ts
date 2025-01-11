@@ -14,13 +14,8 @@ export const PortfolioItems = styled(motion.div)`
   flex-direction: column;
   gap: 24px;
 
-  ${(props) => props.theme.media.tablet} {
+  ${(props) => props.theme.media.largeDesktop} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  ${(props) => props.theme.media.insanity} {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
   }
 `;
