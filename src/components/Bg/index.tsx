@@ -6,19 +6,15 @@ import {
   MoveDirection,
   OutMode,
 } from "@tsparticles/engine";
-// import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-import { mobileMediaQuery, useMediaQuery } from "../../hooks/useMediaQuery";
-// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import { desktopMediaQuery, useMediaQuery } from "../../hooks/useMediaQuery";
 
 const ParticleBackground = () => {
   const [init, setInit] = useState(false);
-  const isMobile = useMediaQuery(mobileMediaQuery);
+  const isDesktop = useMediaQuery(desktopMediaQuery);
 
-  // this should be run only once per application lifetime
   useEffect(() => {
-    if (isMobile) return;
+    if (!isDesktop) return;
 
     initParticlesEngine(async (engine) => {
       // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
@@ -31,7 +27,7 @@ const ParticleBackground = () => {
     }).then(() => {
       setInit(true);
     });
-  }, []);
+  }, [isDesktop]);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
     console.log(container);
@@ -108,7 +104,7 @@ const ParticleBackground = () => {
     []
   );
 
-  if (isMobile) return null;
+  if (!isDesktop) return null;
 
   if (init) {
     return (
