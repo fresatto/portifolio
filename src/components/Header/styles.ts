@@ -6,6 +6,7 @@ export const Container = styled.header`
   justify-content: space-between;
 
   height: 80px;
+  background: #fff;
 
   padding: ${(props) => props.theme.spacing.medium};
 

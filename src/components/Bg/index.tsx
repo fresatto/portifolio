@@ -9,13 +9,17 @@ import {
 // import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+import { mobileMediaQuery, useMediaQuery } from "../../hooks/useMediaQuery";
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
 const ParticleBackground = () => {
   const [init, setInit] = useState(false);
+  const isMobile = useMediaQuery(mobileMediaQuery);
 
   // this should be run only once per application lifetime
   useEffect(() => {
+    if (isMobile) return;
+
     initParticlesEngine(async (engine) => {
       // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
       // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
@@ -103,6 +107,8 @@ const ParticleBackground = () => {
     }),
     []
   );
+
+  if (isMobile) return null;
 
   if (init) {
     return (
