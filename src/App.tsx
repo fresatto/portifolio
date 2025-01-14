@@ -13,10 +13,12 @@ import Contact from "./pages/Contact";
 
 import { Container } from "./styles";
 import ParticleBackground from "./components/Bg";
+import OpeningAnimation from "./components/OpeningAnimation";
 
 function App() {
   return (
     <Container className="App">
+      <OpeningAnimation />
       <ParticleBackground />
       <Routes>
         <Route element={<MainLayout />}>
