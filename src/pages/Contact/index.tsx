@@ -27,11 +27,22 @@ const Contact: React.FC = () => {
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <ThreeInputsWrapper>
-              <CustomInput name="username" label="Nome" schema={formSchema} />
-              <CustomInput name="email" label="Email" schema={formSchema} />
+              <CustomInput
+                name="username"
+                label="Nome"
+                type="text"
+                schema={formSchema}
+              />
+              <CustomInput
+                name="email"
+                type="email"
+                label="Email"
+                schema={formSchema}
+              />
               <CustomInput
                 name="cellphone"
                 label="Telefone"
+                type="tel"
                 schema={formSchema}
               />
             </ThreeInputsWrapper>
