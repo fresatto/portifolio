@@ -13,7 +13,7 @@ const Header: React.FC = () => {
     <Container>
       <img src="https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk" />
       <button onClick={() => setOpened(true)}>
-        <MenuIcon />
+        <MenuIcon htmlColor="#000" fontSize="large" />
       </button>
 
       <Drawer open={opened} onClose={() => setOpened(false)}>
