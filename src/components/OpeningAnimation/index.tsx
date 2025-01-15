@@ -5,7 +5,13 @@ import { Container, Left, Line, Right } from "./styles";
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const OpeningAnimation: React.FC = () => {
+type OpeningAnimationProps = {
+  onAnimationEnded: () => void;
+};
+
+const OpeningAnimation: React.FC<OpeningAnimationProps> = ({
+  onAnimationEnded,
+}) => {
   const lineHeight = useMotionValue<number | string>("0%");
   const lineTop = useMotionValue("50%");
   const lineOpacity = useMotionValue(0);
@@ -31,6 +37,8 @@ const OpeningAnimation: React.FC = () => {
           ease: "easeIn",
         });
         animate(lineOpacity, 0);
+
+        onAnimationEnded();
       });
     }, 500);
 

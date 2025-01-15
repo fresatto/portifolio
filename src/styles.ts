@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+type ContainerProps = {
+  openingAnimationEnded: boolean;
+};
+
+export const Container = styled.div<ContainerProps>`
   height: 100%;
   position: relative;
   z-index: 10;
+
+  overflow: ${(props) => (props.openingAnimationEnded ? "auto" : "hidden")};
 
   ${({ theme }) => theme.media.largeDesktop} {
     padding: 50px;

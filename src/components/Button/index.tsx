@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps & PropsWithChildren> = (props) => {
     },
     visible: {
       width: "100%",
-      background: "#555",
+      background: "#000",
       transition: {
         duration: 0.3,
         ease: "easeIn",

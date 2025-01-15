@@ -14,11 +14,16 @@ import Contact from "./pages/Contact";
 import { Container } from "./styles";
 import ParticleBackground from "./components/Bg";
 import OpeningAnimation from "./components/OpeningAnimation";
+import { useState } from "react";
 
 function App() {
+  const [openingAnimationEnded, setOpeningAnimationEnded] = useState(false);
+
   return (
-    <Container className="App">
-      <OpeningAnimation />
+    <Container className="App" openingAnimationEnded={openingAnimationEnded}>
+      <OpeningAnimation
+        onAnimationEnded={() => setOpeningAnimationEnded(true)}
+      />
       <ParticleBackground />
       <Routes>
         <Route element={<MainLayout />}>
