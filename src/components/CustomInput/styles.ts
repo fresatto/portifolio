@@ -16,7 +16,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   padding: 0 20px;
 
   outline: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-family: "Syne", sans-serif;
 
   border-bottom-color: ${({ error, isvalid }) => {
