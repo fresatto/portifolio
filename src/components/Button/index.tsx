@@ -36,6 +36,7 @@ const Button: React.FC<ButtonProps & PropsWithChildren> = (props) => {
     <Container
       initial="hidden"
       animate={isHovered ? "visible" : "hidden"}
+      whileTap="visible"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       {...props}
