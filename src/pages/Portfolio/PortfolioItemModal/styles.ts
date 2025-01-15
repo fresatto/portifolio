@@ -10,10 +10,13 @@ export const Content = styled.div`
   overflow: auto;
 
   background-color: #fff;
+  margin: 20px;
+  outline: 0;
 
   ${(props) => props.theme.media.desktop} {
     max-width: 800px;
     max-height: 80vh;
+    margin: 0;
   }
 `;
 
