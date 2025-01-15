@@ -9,7 +9,6 @@ import CustomInput from "../../components/CustomInput";
 import { formSchema } from "./schema";
 import { MessageInput, ThreeInputsWrapper } from "./styles";
 import Button from "../../components/Button";
-import { Typography } from "@mui/material";
 
 type FormValues = z.infer<typeof formSchema>;
 

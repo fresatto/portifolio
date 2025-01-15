@@ -1,5 +1,7 @@
+import { forwardRef } from "react";
 import { useFormContext, FieldError } from "react-hook-form";
 import { z } from "zod";
+
 import { Container, StyledInput } from "./styles";
 
 type CustomTextAreaProps<TSchema extends z.ZodType<any>> = {
@@ -8,20 +10,18 @@ type CustomTextAreaProps<TSchema extends z.ZodType<any>> = {
   schema: TSchema;
 };
 
-const CustomTextArea = <TSchema extends z.ZodType<any>>({
-  name,
-  label,
-  schema,
-  ...props
-}: CustomTextAreaProps<TSchema>) => {
+const CustomTextArea = forwardRef<
+  HTMLTextAreaElement,
+  CustomTextAreaProps<z.ZodType<any>>
+>(({ name, label, schema, ...props }, ref) => {
   const {
     register,
     formState: { errors, touchedFields },
   } = useFormContext();
 
-  const error = errors[name] as FieldError | undefined;
+  const error = errors[name as string] as FieldError | undefined;
 
-  const isValid: boolean = (touchedFields[name] as any) && !error;
+  const isValid: boolean = (touchedFields[name as string] as any) && !error;
 
   return (
     <Container>
@@ -31,9 +31,10 @@ const CustomTextArea = <TSchema extends z.ZodType<any>>({
         isvalid={isValid}
         {...register(name as string)}
         {...props}
+        ref={ref}
       />
     </Container>
   );
-};
+});
 
 export default CustomTextArea;
