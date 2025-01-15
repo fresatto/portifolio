@@ -70,7 +70,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
     }
 
     return {
-      whileInView: "visible",
+      animate: "visible",
     };
   };
 
