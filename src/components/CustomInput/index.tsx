@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute } from "react";
+import { HTMLInputTypeAttribute, InputHTMLAttributes } from "react";
 import { useFormContext, FieldError } from "react-hook-form";
 import { z } from "zod";
 
@@ -10,7 +10,7 @@ type CustomInputProps<TSchema extends z.ZodType<any>> = {
   schema: TSchema;
   type?: HTMLInputTypeAttribute;
   phone?: boolean;
-};
+} & InputHTMLAttributes<HTMLInputElement>;
 
 const applyPhoneMask = (value: string) => {
   // Remove todos os caracteres que não são números
@@ -34,6 +34,7 @@ const CustomInput = <TSchema extends z.ZodType<any>>({
   ...props
 }: CustomInputProps<TSchema>) => {
   const {
+    setValue,
     register,
     formState: { errors, touchedFields },
   } = useFormContext();
@@ -46,7 +47,10 @@ const CustomInput = <TSchema extends z.ZodType<any>>({
     const { value } = e.target;
 
     if (phone) {
-      e.target.value = applyPhoneMask(value);
+      const maskedValue = applyPhoneMask(value);
+      setValue(name as string, maskedValue);
+    } else {
+      setValue(name as string, value);
     }
   };
 

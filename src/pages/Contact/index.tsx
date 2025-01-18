@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form";
@@ -9,25 +9,42 @@ import CustomInput from "../../components/CustomInput";
 import { formSchema } from "./schema";
 import { MessageInput, ThreeInputsWrapper } from "./styles";
 import Button from "../../components/Button";
+import emailjs from "@emailjs/browser";
 
 type FormValues = z.infer<typeof formSchema>;
 
+const fakeDelay = () => new Promise((resolve) => setTimeout(resolve, 1000));
+
 const Contact: React.FC = () => {
   const methods = useForm<FormValues>({
-    defaultValues: {
-      username: "Gabriel Fresatto",
-      cellphone: "(11) 94150-9081",
-      email: "gabriel@gmail.com",
-      message: "Olá caralho",
-    },
     resolver: zodResolver(formSchema),
     mode: "all",
   });
 
-  const onSubmit = (data: FormValues) => {
-    // TODO: Integrar
+  const [loading, setLoading] = useState(false);
 
-    console.log(data);
+  const onSubmit = async (data: FormValues) => {
+    setLoading(true);
+    try {
+      // await fakeDelay();
+
+      await emailjs.send(
+        "service_uilp3pq",
+        "template_fwinlu9",
+        {
+          from_name: data.username,
+          from_cellphone: data.cellphone,
+          from_email: data.email,
+          message: data.message,
+        },
+        "55YsOpjQTFOJBMJnu"
+      );
+      // TODO: Exibir mensagem de sucesso
+    } catch (error) {
+      // TODO: Exibir mensagem de erro
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -58,8 +75,12 @@ const Contact: React.FC = () => {
             </ThreeInputsWrapper>
             <MessageInput name="message" label="Mensagem" schema={formSchema} />
 
-            <Button type="submit" onClick={() => onSubmit(methods.getValues())}>
-              Enviar mensagem
+            <Button
+              type="submit"
+              disabled={!methods.formState.isValid}
+              onClick={() => onSubmit(methods.getValues())}
+            >
+              {loading ? "Enviando..." : "Enviar mensagem"}
             </Button>
           </form>
         </FormProvider>

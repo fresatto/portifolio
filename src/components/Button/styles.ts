@@ -8,6 +8,7 @@ export const Container = styled(motion.button)<ButtonProps>`
   margin-top: 16px;
   padding: 0;
   position: relative;
+  outline: 0;
 
   span {
     width: 100%;

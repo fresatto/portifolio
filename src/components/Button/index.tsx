@@ -1,8 +1,4 @@
-import React, {
-  ButtonHTMLAttributes,
-  PropsWithChildren,
-  useState,
-} from "react";
+import React, { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import { HTMLMotionProps, motion, Variants } from "framer-motion";
 
 import { Container } from "./styles";
@@ -10,7 +6,8 @@ import { Container } from "./styles";
 export type ButtonProps = ButtonHTMLAttributes<HTMLMotionProps<"button">>;
 
 const Button: React.FC<ButtonProps & PropsWithChildren> = (props) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const { disabled } = props;
+
   const frontMessageVariants: Variants = {
     hidden: {
       width: "35%",
@@ -35,10 +32,7 @@ const Button: React.FC<ButtonProps & PropsWithChildren> = (props) => {
   return (
     <Container
       initial="hidden"
-      animate={isHovered ? "visible" : "hidden"}
-      whileTap="visible"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      animate={disabled ? "hidden" : "visible"}
       {...props}
     >
       <motion.span variants={frontMessageVariants} className="front">
