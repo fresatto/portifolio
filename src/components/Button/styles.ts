@@ -17,6 +17,8 @@ export const Container = styled(motion.button)<ButtonProps>`
   color: ${(props) => (props.disabled ? "#999" : "#fff")};
   transition: opacity 200ms;
 
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+
   &:hover {
     opacity: 0.8;
   }
