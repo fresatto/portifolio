@@ -1,12 +1,20 @@
 import React, { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import { HTMLMotionProps, motion, Variants } from "framer-motion";
+import {
+  AnimatePresence,
+  HTMLMotionProps,
+  Variants,
+  motion,
+} from "framer-motion";
 
 import { Container } from "./styles";
+import { CircularProgress } from "@mui/material";
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLMotionProps<"button">>;
+export type ButtonProps = {
+  loading?: boolean;
+} & ButtonHTMLAttributes<HTMLMotionProps<"button">>;
 
 const Button: React.FC<ButtonProps & PropsWithChildren> = (props) => {
-  const { disabled } = props;
+  const { disabled, loading } = props;
 
   const frontMessageVariants: Variants = {
     hidden: {
@@ -27,18 +35,36 @@ const Button: React.FC<ButtonProps & PropsWithChildren> = (props) => {
     },
   };
 
-  const label = props.children;
+  const loadingVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3 } },
+  };
+
+  const buttonDisabled = loading || disabled;
 
   return (
     <Container
-      initial="hidden"
-      animate={disabled ? "hidden" : "visible"}
+      initial="visible"
+      disabled={buttonDisabled}
+      loading={loading}
       {...props}
     >
-      <motion.span variants={frontMessageVariants} className="front">
-        {label}
-      </motion.span>
-      <span className="back">{label}</span>
+      <motion.span>{props.children}</motion.span>
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            key="loading"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={loadingVariants}
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            <CircularProgress color="inherit" size={16} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Container>
   );
 };
