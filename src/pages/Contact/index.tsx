@@ -10,6 +10,7 @@ import { formSchema } from "./schema";
 import { MessageInput, ThreeInputsWrapper } from "./styles";
 import Button from "../../components/Button";
 import emailjs from "@emailjs/browser";
+import { Typography } from "@mui/material";
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -26,19 +27,19 @@ const Contact: React.FC = () => {
   const onSubmit = async (data: FormValues) => {
     setLoading(true);
     try {
-      // await fakeDelay();
+      await fakeDelay();
 
-      await emailjs.send(
-        "service_uilp3pq",
-        "template_fwinlu9",
-        {
-          from_name: data.username,
-          from_cellphone: data.cellphone,
-          from_email: data.email,
-          message: data.message,
-        },
-        "55YsOpjQTFOJBMJnu"
-      );
+      // await emailjs.send(
+      //   "service_uilp3pq",
+      //   "template_fwinlu9",
+      //   {
+      //     from_name: data.username,
+      //     from_cellphone: data.cellphone,
+      //     from_email: data.email,
+      //     message: data.message,
+      //   },
+      //   "55YsOpjQTFOJBMJnu"
+      // );
       // TODO: Exibir mensagem de sucesso
     } catch (error) {
       // TODO: Exibir mensagem de erro
@@ -50,6 +51,11 @@ const Contact: React.FC = () => {
   return (
     <AnimatedPageContainer>
       <InfoSection title="Entrar em contato">
+        <Typography mb="16px">
+          Entre em contato comigo para tirar dúvidas, discutir projetos ou
+          apenas para dizer "oi". Preencha o formulário abaixo, e retornarei o
+          mais breve possível.
+        </Typography>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <ThreeInputsWrapper>
@@ -77,13 +83,25 @@ const Contact: React.FC = () => {
 
             <Button
               type="submit"
+              loading={loading}
               disabled={!methods.formState.isValid}
               onClick={() => onSubmit(methods.getValues())}
             >
-              {loading ? "Enviando..." : "Enviar mensagem"}
+              Enviar mensagem
             </Button>
           </form>
         </FormProvider>
+        <hr />
+        <Typography>
+          Se preferir, me chame pelo WhatsApp{" "}
+          <a
+            href="https://wa.me/5511941509081?text=Ol%C3%A1!%20Tudo%20bem%3F"
+            target="_blank"
+            className="link"
+          >
+            clicando aqui.
+          </a>
+        </Typography>
       </InfoSection>
     </AnimatedPageContainer>
   );

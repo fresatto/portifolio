@@ -162,6 +162,11 @@ a {
   color: inherit;
 }
 
+.link {
+  color: #000;
+  text-decoration: underline;
+}
+
 /* Ajuste para botões */
 button {
   cursor: pointer;
