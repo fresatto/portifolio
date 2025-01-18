@@ -43,6 +43,7 @@ const Contact: React.FC = () => {
                 name="cellphone"
                 label="Telefone"
                 type="tel"
+                phone
                 schema={formSchema}
               />
             </ThreeInputsWrapper>

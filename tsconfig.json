@@ -16,7 +16,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": ["swiper"], // Inclui as tipagens do Swiper
-    "typeRoots": ["./node_modules/@types"] // Localiza tipagens instaladas
+    "typeRoots": ["./node_modules/@types"], // Localiza tipagens instaladas,
+    "noEmitOnError": false
   },
   "include": ["src", "src/types/global.d.ts"]
 }

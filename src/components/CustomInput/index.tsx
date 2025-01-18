@@ -9,6 +9,20 @@ type CustomInputProps<TSchema extends z.ZodType<any>> = {
   label: string;
   schema: TSchema;
   type?: HTMLInputTypeAttribute;
+  phone?: boolean;
+};
+
+const applyPhoneMask = (value: string) => {
+  // Remove todos os caracteres que não são números
+  const numericValue = value.replace(/\D/g, "");
+
+  // Aplica a máscara
+  const maskedValue = numericValue
+    .replace(/^(\d{2})(\d)/, "($1) $2") // Adiciona os parênteses e espaço após os 2 primeiros dígitos
+    .replace(/(\d{5})(\d)/, "$1-$2") // Adiciona o traço após o quinto dígito
+    .slice(0, 15); // Limita o comprimento ao tamanho da máscara
+
+  return maskedValue;
 };
 
 const CustomInput = <TSchema extends z.ZodType<any>>({
@@ -16,6 +30,7 @@ const CustomInput = <TSchema extends z.ZodType<any>>({
   label,
   schema,
   type = "text",
+  phone = false,
   ...props
 }: CustomInputProps<TSchema>) => {
   const {
@@ -27,6 +42,14 @@ const CustomInput = <TSchema extends z.ZodType<any>>({
 
   const isValid: boolean = (touchedFields[name] as any) && !error;
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+
+    if (phone) {
+      e.target.value = applyPhoneMask(value);
+    }
+  };
+
   return (
     <Container>
       <StyledInput
@@ -36,6 +59,7 @@ const CustomInput = <TSchema extends z.ZodType<any>>({
         type={type}
         {...register(name as string)}
         {...props}
+        onChange={handleOnChange}
       />
     </Container>
   );
