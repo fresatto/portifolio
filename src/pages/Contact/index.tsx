@@ -14,10 +14,19 @@ type FormValues = z.infer<typeof formSchema>;
 
 const Contact: React.FC = () => {
   const methods = useForm<FormValues>({
+    defaultValues: {
+      username: "Gabriel Fresatto",
+      cellphone: "(11) 94150-9081",
+      email: "gabriel@gmail.com",
+      message: "Olá caralho",
+    },
     resolver: zodResolver(formSchema),
+    mode: "all",
   });
 
   const onSubmit = (data: FormValues) => {
+    // TODO: Integrar
+
     console.log(data);
   };
 
@@ -49,7 +58,9 @@ const Contact: React.FC = () => {
             </ThreeInputsWrapper>
             <MessageInput name="message" label="Mensagem" schema={formSchema} />
 
-            <Button>Enviar mensagem</Button>
+            <Button type="submit" onClick={() => onSubmit(methods.getValues())}>
+              Enviar mensagem
+            </Button>
           </form>
         </FormProvider>
       </InfoSection>

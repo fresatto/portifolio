@@ -31,7 +31,6 @@ const CustomTextArea = forwardRef<
         isvalid={isValid}
         {...register(name as string)}
         {...props}
-        ref={ref}
       />
     </Container>
   );
