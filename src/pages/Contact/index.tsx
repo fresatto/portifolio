@@ -1,63 +1,32 @@
-import React, { useState } from "react";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, FormProvider } from "react-hook-form";
+import React from "react";
+import { FormProvider } from "react-hook-form";
+import { Typography } from "@mui/material";
 
 import AnimatedPageContainer from "../../components/AnimatedPageContainer";
 import InfoSection from "../../components/InfoSection";
 import CustomInput from "../../components/CustomInput";
-import { formSchema } from "./schema";
-import { MessageInput, ThreeInputsWrapper } from "./styles";
 import Button from "../../components/Button";
-import emailjs from "@emailjs/browser";
-import { Typography } from "@mui/material";
-
-type FormValues = z.infer<typeof formSchema>;
-
-const fakeDelay = () => new Promise((resolve) => setTimeout(resolve, 1000));
+import { MessageInput, ThreeInputsWrapper } from "./styles";
+import Alert from "./components/Alert";
+import { useContactController } from "./useContactController";
 
 const Contact: React.FC = () => {
-  const methods = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    mode: "all",
-  });
-
-  const [loading, setLoading] = useState(false);
-
-  const onSubmit = async (data: FormValues) => {
-    setLoading(true);
-    try {
-      await fakeDelay();
-
-      // await emailjs.send(
-      //   "service_uilp3pq",
-      //   "template_fwinlu9",
-      //   {
-      //     from_name: data.username,
-      //     from_cellphone: data.cellphone,
-      //     from_email: data.email,
-      //     message: data.message,
-      //   },
-      //   "55YsOpjQTFOJBMJnu"
-      // );
-      // TODO: Exibir mensagem de sucesso
-    } catch (error) {
-      // TODO: Exibir mensagem de erro
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { hookForm, formSchema, loading, onSubmit } = useContactController();
 
   return (
     <AnimatedPageContainer>
       <InfoSection title="Entrar em contato">
+        <Alert>
+          Sua mensagem foi enviada com sucesso. Agradeço pelo contato e
+          retornarei o mais breve possível.
+        </Alert>
         <Typography mb="16px">
           Entre em contato comigo para tirar dúvidas, discutir projetos ou
           apenas para dizer "oi". Preencha o formulário abaixo, e retornarei o
           mais breve possível.
         </Typography>
-        <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <FormProvider {...hookForm}>
+          <form onSubmit={hookForm.handleSubmit(onSubmit)}>
             <ThreeInputsWrapper>
               <CustomInput
                 name="username"
@@ -84,8 +53,8 @@ const Contact: React.FC = () => {
             <Button
               type="submit"
               loading={loading}
-              disabled={!methods.formState.isValid}
-              onClick={() => onSubmit(methods.getValues())}
+              disabled={!hookForm.formState.isValid}
+              onClick={() => onSubmit(hookForm.getValues())}
             >
               Enviar mensagem
             </Button>
