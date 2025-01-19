@@ -7,6 +7,10 @@ const StyledNavLink = styled(NavLink)`
   &.active {
     color: ${(props) => props.theme.colors.textBold};
   }
+
+  img {
+    filter: grayscale(1);
+  }
 `;
 
 export default StyledNavLink;

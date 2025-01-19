@@ -6,6 +6,8 @@ import { Container, DrawerContent, SocialNetworks } from "./styles";
 import { menuItems } from "../../constants/nav";
 import StyledNavLink from "../StyledNavLink";
 
+import ProfilePic from "../../assets/profile.png";
+
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
@@ -15,7 +17,7 @@ const Header: React.FC = () => {
   return (
     <Container>
       <StyledNavLink to="/">
-        <img src="https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk" />
+        <img src={ProfilePic} alt="Profile Pic" />
       </StyledNavLink>
       <button onClick={() => setOpened(true)}>
         <MenuIcon htmlColor="#000" fontSize="large" />

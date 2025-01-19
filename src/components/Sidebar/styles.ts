@@ -10,6 +10,10 @@ export const Container = styled.aside`
   display: none;
   flex-shrink: 0;
 
+  img {
+    filter: grayscale(1);
+  }
+
   ${({ theme }) => theme.media.largeDesktop} {
     display: flex;
     flex-direction: column;

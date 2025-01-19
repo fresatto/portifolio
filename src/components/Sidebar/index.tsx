@@ -1,17 +1,17 @@
 import React from "react";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 import { menuItems } from "../../constants/nav";
 import StyledNavLink from "../StyledNavLink";
-
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import ProfilePic from "../../assets/profile.png";
 
 import { Container, Nav, SocialNetworks } from "./styles";
 
 const Sidebar: React.FC = () => {
   return (
     <Container className="sidebar">
-      <img src="https://i.pinimg.com/736x/3b/55/9f/3b559f613f431cb2680ada916e029a78.jpg" />
+      <img src={ProfilePic} alt="Profile pic" />
       <Nav>
         <ul>
           {menuItems.map(({ routeName, path }) => (
