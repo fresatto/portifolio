@@ -14,7 +14,9 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      <img src="https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk" />
+      <StyledNavLink to="/">
+        <img src="https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk" />
+      </StyledNavLink>
       <button onClick={() => setOpened(true)}>
         <MenuIcon htmlColor="#000" fontSize="large" />
       </button>
