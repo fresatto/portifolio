@@ -1,6 +1,10 @@
 import React from "react";
+
 import { menuItems } from "../../constants/nav";
 import StyledNavLink from "../StyledNavLink";
+
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 import { Container, Nav, SocialNetworks } from "./styles";
 
@@ -18,8 +22,12 @@ const Sidebar: React.FC = () => {
         </ul>
       </Nav>
       <SocialNetworks>
-        {/* TODO: Adicionar redes sociais */}
-        <span>Redes Sociais</span>
+        <a href="https://www.linkedin.com/in/gabrielfresatto/" target="_blank">
+          <LinkedInIcon fontSize="medium" />
+        </a>
+        <a href="https://www.instagram.com/fresatto_/" target="_blank">
+          <InstagramIcon fontSize="medium" />
+        </a>
       </SocialNetworks>
     </Container>
   );
