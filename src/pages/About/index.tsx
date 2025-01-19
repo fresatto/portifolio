@@ -149,7 +149,7 @@ const About: React.FC = () => {
           </SkillGroup>
         </SkillsSection>
       </InfoSection>
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
     </AnimatedPageContainer>
   );
 };
