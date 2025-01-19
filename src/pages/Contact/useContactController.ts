@@ -8,8 +8,6 @@ import { formSchema } from "./schema";
 
 export type FormValues = z.infer<typeof formSchema>;
 
-const fakeDelay = () => new Promise((resolve) => setTimeout(resolve, 1000));
-
 export function useContactController() {
   const hookForm = useForm<FormValues>({
     resolver: zodResolver(formSchema),
