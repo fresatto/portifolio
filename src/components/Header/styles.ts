@@ -30,3 +30,16 @@ export const DrawerContent = styled.div`
   flex-direction: column;
   gap: 12px;
 `;
+
+export const SocialNetworks = styled.div`
+  color: var(--font-color);
+
+  strong {
+    color: ${(props) => props.theme.colors.textBold};
+  }
+
+  p {
+    margin-bottom: 8px;
+    line-height: 24px;
+  }
+`;
