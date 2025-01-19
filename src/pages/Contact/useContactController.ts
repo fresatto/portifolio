@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 
 import { formSchema } from "./schema";
 
@@ -29,19 +30,21 @@ export function useContactController() {
   const onSubmit = async (data: FormValues) => {
     setLoading(true);
     try {
-      await fakeDelay();
+      if (!data.username || !data.cellphone || !data.email || !data.message) {
+        throw new Error("Missing fields");
+      }
 
-      // await emailjs.send(
-      //   "service_uilp3pq",
-      //   "template_fwinlu9",
-      //   {
-      //     from_name: data.username,
-      //     from_cellphone: data.cellphone,
-      //     from_email: data.email,
-      //     message: data.message,
-      //   },
-      //   "55YsOpjQTFOJBMJnu"
-      // );
+      await emailjs.send(
+        "service_uilp3pq",
+        "template_fwinlu9",
+        {
+          from_name: data.username,
+          from_cellphone: data.cellphone,
+          from_email: data.email,
+          message: data.message,
+        },
+        "55YsOpjQTFOJBMJnu"
+      );
 
       setSuccess(true);
       resetFields();
