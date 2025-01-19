@@ -5,7 +5,6 @@ import InfoSection from "../../components/InfoSection";
 import Skill from "../../components/Skill";
 import { SkillGroup, SkillsSection, SkillsWrapper, Stats } from "./styles";
 import Experience from "../../components/Experience";
-import TestimonialsSection from "./components/TestimonialsSection";
 import AnimatedPageContainer from "../../components/AnimatedPageContainer";
 
 const About: React.FC = () => {
@@ -149,7 +148,6 @@ const About: React.FC = () => {
           </SkillGroup>
         </SkillsSection>
       </InfoSection>
-      {/* <TestimonialsSection /> */}
     </AnimatedPageContainer>
   );
 };
