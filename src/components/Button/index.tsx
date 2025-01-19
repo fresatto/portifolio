@@ -15,7 +15,6 @@ const Button: React.FC<ButtonProps & PropsWithChildren> = (props) => {
 
   return (
     <Container
-      layout
       initial="visible"
       {...props}
       loading={loading}

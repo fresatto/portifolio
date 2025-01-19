@@ -16,6 +16,15 @@ export function useContactController() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const resetFields = () => {
+    hookForm.resetField("username");
+    hookForm.resetField("email");
+    hookForm.resetField("cellphone");
+    hookForm.resetField("message");
+  };
 
   const onSubmit = async (data: FormValues) => {
     setLoading(true);
@@ -33,9 +42,11 @@ export function useContactController() {
       //   },
       //   "55YsOpjQTFOJBMJnu"
       // );
-      // TODO: Exibir mensagem de sucesso
+
+      setSuccess(true);
+      resetFields();
     } catch (error) {
-      // TODO: Exibir mensagem de erro
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -45,6 +56,8 @@ export function useContactController() {
     hookForm,
     formSchema,
     loading,
+    success,
+    error,
     onSubmit,
   };
 }

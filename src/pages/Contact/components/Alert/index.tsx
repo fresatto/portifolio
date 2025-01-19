@@ -3,12 +3,14 @@ import React, { PropsWithChildren } from "react";
 
 import { Container } from "./styles";
 
-type AlertProps = {} & PropsWithChildren;
+type AlertProps = {
+  error?: boolean;
+} & PropsWithChildren;
 
-const Alert: React.FC<AlertProps> = ({ children }) => {
+const Alert: React.FC<AlertProps> = ({ children, error = false }) => {
   return (
-    <Container>
-      <Typography color="#006b06">{children}</Typography>
+    <Container error={error}>
+      <Typography color={error ? "#9a0505" : "#006b06"}>{children}</Typography>
     </Container>
   );
 };
